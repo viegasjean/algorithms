@@ -10,4 +10,3 @@ def study_schedule(permanence_period, target_time):
         except (TypeError, ValueError):
             return None
     return count
-
