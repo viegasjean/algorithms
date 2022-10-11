@@ -31,7 +31,7 @@ def mergesort(string):
             left = ar_list[start:mid]
             right = ar_list[mid:end]
             ar_list[start:end] = merge(left, right)
-    return ''.join(ar_list)
+    return "".join(ar_list)
 
 
 def is_anagram(first_string, second_string):

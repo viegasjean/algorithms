@@ -1,10 +1,33 @@
+def binary_search(numbers, target):
+    numbers.sort()
+    start = 0
+    end = len(numbers) - 1
+
+    while start <= end:
+        mid = (start + end) // 2
+
+        if numbers[mid] == target:
+            return target
+
+        if target < numbers[mid]:
+            end = mid - 1
+        else:
+            start = mid + 1
+
+    return False
+
+
 def find_duplicate(nums):
-    """Faça o código aqui."""
-    if type(nums) != list or len(nums) <= 1 or nums == str:
+    if type(nums) != list or len(nums) <= 1:
         return False
-    for num in nums:
-        if type(num) == str or num < 0:
+    # print('nums', nums)
+    filtered = []
+    for n in nums:
+        if type(n) == str or n < 0:
             return False
-        if nums.count(num) > 1:
-            return num
+        if n not in filtered:
+            filtered.append(n)
+        else:
+            return binary_search(nums, n)
+
     return False
